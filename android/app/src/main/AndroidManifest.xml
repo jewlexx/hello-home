@@ -1,9 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hhome">
-   <application
+    <application
         android:label="hhome"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <receiver android:name="HomeWidgetExampleProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+        android:resource="@xml/photo-widget" />
+        </receiver>
         <activity
             android:name=".MainActivity"
             android:exported="true"
