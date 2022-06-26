@@ -1,6 +1,17 @@
 package com.example.hhome
 
-import io.flutter.embedding.android.FlutterActivity
+import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
+import android.content.Context
+import android.content.SharedPreferences
 
-class MainActivity : FlutterActivity() {
+abstract class HomeWidgetProvider : AppWidgetProvider() {
+
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+        super.onUpdate(context, appWidgetManager, appWidgetIds)
+        onUpdate(context, appWidgetManager, appWidgetIds, HomeWidgetPlugin.getData(context))
+    }
+
+    abstract fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray, widgetData: SharedPreferences)
+
 }

@@ -4,12 +4,12 @@
         android:label="hhome"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <receiver android:name="HomeWidgetExampleProvider" >
+        <receiver android:exported="false" android:name="HomeWidgetExampleProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
-        android:resource="@xml/photo-widget" />
+        android:resource="@xml/photo_widget" />
         </receiver>
         <activity
             android:name=".MainActivity"
